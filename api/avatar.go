@@ -19,6 +19,7 @@ func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 	// 打印出来
 	fmt.Println(r.URL, r.URL.Path)
 
+	md5 := ""
 	query := r.URL.Query()
 	d, s := query.Get("d"), query.Get("s")
 	gravatar := fmt.Sprintf("https://0.gravatar.com/avatar/%s?s=%s&d=%s", md5, s, d)
