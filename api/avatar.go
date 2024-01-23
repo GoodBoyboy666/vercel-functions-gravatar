@@ -17,7 +17,18 @@ func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	query := r.URL.Query()
-	gravatar := fmt.Sprintf("https://0.gravatar.com%s?s=%s&d=%s", r.URL.Path, query.Get("s"), query.Get("d"))
+	// 头像默认尺寸，没有就取80，加快速度，因为cravatar默认就是80
+	s := query.Get("s")
+	if s == "" {
+		s = "80"
+	}
+
+	d := query.Get("d")
+	if d == "" {
+		d = "wavatar" // 卡通头像，我喜欢这个
+	}
+
+	gravatar := fmt.Sprintf("https://0.gravatar.com%s?s=%s&d=%s", r.URL.Path, s, d)
 	resp, err := http.Get(gravatar)
 	if err != nil {
 		http.Error(w, "404 Not Found", http.StatusNotFound)
