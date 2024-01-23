@@ -16,13 +16,8 @@ func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "403 Forbidden", http.StatusForbidden)
 		return
 	}
-	// 打印出来
-	fmt.Println(r.URL, r.URL.Path)
-
-	md5 := ""
 	query := r.URL.Query()
-	d, s := query.Get("d"), query.Get("s")
-	gravatar := fmt.Sprintf("https://0.gravatar.com/avatar/%s?s=%s&d=%s", md5, s, d)
+	gravatar := fmt.Sprintf("https://0.gravatar.com%s?s=%s&d=%s", r.URL.Path, s, query.Get("d", "wavatar"), query.Get("s", 100))
 	resp, err := http.Get(gravatar)
 	if err != nil {
 		http.Error(w, "404 Not Found", http.StatusNotFound)
