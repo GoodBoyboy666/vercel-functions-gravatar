@@ -10,9 +10,9 @@ import (
 const allowedDomain string = "https://blog.del.pub"
 
 func AvaterHandler(w http.ResponseWriter, r *http.Request) {
-	// 加入防盗链
+	// 加入防盗链，防止被盗刷
 	referer := r.Header.Get("Referer")
-	if false && !strings.HasPrefix(referer, allowedDomain) {
+	if !strings.HasPrefix(referer, allowedDomain) {
 		http.Error(w, "403 Forbidden", http.StatusForbidden)
 		return
 	}
