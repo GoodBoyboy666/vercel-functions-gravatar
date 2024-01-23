@@ -17,7 +17,7 @@ func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	query := r.URL.Query()
-	gravatar := fmt.Sprintf("https://0.gravatar.com%s?s=%s&d=%s", r.URL.Path, s, query.Get("d", "wavatar"), query.Get("s", 100))
+	gravatar := fmt.Sprintf("https://0.gravatar.com%s?s=%s&d=%s", r.URL.Path, query.Get("s"), query.Get("d"))
 	resp, err := http.Get(gravatar)
 	if err != nil {
 		http.Error(w, "404 Not Found", http.StatusNotFound)
