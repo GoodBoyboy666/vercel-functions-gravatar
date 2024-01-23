@@ -1,15 +1,14 @@
 package avatar
 
 import (
+	"fmt"
 	"io"
 	"net/http"
-
-	"github.com/gorilla/mux"
 )
 
 func AvaterHandler(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	md5 := vars["md5"]
+	query := r.URL.Query()
+	fmt.Println(query)
 	w.WriteHeader(http.StatusOK)
-	io.WriteString(w, md5)
+	io.WriteString(w, "你好，世界")
 }
