@@ -1,10 +1,11 @@
 package handler
 
 import (
-	"fmt"
+	"io"
 	"net/http"
 )
 
 func Handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "欢迎使用我的头像加速！")
+	w.WriteHeader(http.StatusOK)
+	io.WriteString(w, "欢迎使用我的头像加速！")
 }
