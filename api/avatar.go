@@ -12,7 +12,7 @@ const allowedDomain string = "https://blog.del.pub"
 func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 	// 加入防盗链
 	referer := r.Header.Get("Referer")
-	if false && !strings.HasPrefix(referer, allowedDomain) {
+	if !strings.HasPrefix(referer, allowedDomain) {
 		http.Error(w, "403 Forbidden", http.StatusForbidden)
 		return
 	}
