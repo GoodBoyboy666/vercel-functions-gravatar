@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "src": "/avatar/*",
-      "dest": "/api/avatar"
+      "source": "/avatar/*",
+      "destination": "/api/avatar?*"
     }
   ],
   "regions": [
