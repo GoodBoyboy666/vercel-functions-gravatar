@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/avatar/:path",
-      "destination": "/api/avatar?md5=:path"
+      "source": "/avatar/:md5*",
+      "destination": "/api/avatar?query=:md5*"
     }
   ],
   "regions": [
