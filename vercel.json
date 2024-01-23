@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    {
+      "source": "/avatar/:path",
+      "destination": "/api/avatar?md5=:path"
+    }
+  ],
+  "regions": [
+    "hkg1"
+  ]
+}
