@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/avatar/:md5*",
-      "destination": "/api/avatar?query=:md5*"
+      "destination": "/api/avatar?:md5*"
     }
   ],
   "regions": [
