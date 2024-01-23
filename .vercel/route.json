@@ -1,0 +1,8 @@
+{
+  "routes": [
+    {
+      "src": "/avatar/:md5",
+      "dest": "/avatar/avatar"
+    }
+  ]
+}
