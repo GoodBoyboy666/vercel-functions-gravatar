@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "src": "/avatar/([^.*?]+)",
+      "src": "/avatar/([^*]+)",
       "dest": "/api/avatar"
     }
   ],
