@@ -17,7 +17,7 @@ func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	// 打印出来
-	fmt.Println(r.URL)
+	fmt.Println(r.URL, r.URL.Path)
 
 	query := r.URL.Query()
 	d, s := query.Get("d"), query.Get("s")
