@@ -4,22 +4,20 @@ import (
 	"fmt"
 	"io"
 	"net/http"
-	"os"
-	"strings"
 )
 
 // 防盗链的域名，不带http或者https
-var allowedDomain string = os.Getenv("domain")
+// var allowedDomain string = os.Getenv("domain")
 
 func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 	// 加入防盗链，防止被盗刷
-	referer := r.Header.Get("Referer")
-	fmt.Println(referer)
+	// referer := r.Header.Get("Referer")
+	// fmt.Println(referer)
 	// 判定是否为http或者https开头
-	if !strings.HasPrefix(referer, fmt.Sprint("http://", allowedDomain)) && !strings.HasPrefix(referer, fmt.Sprint("https://", allowedDomain)) {
+	/*if !strings.HasPrefix(referer, fmt.Sprint("http://", allowedDomain)) && !strings.HasPrefix(referer, fmt.Sprint("https://", allowedDomain)) {
 		http.Error(w, "403 Forbidden", http.StatusForbidden)
 		return
-	}
+	}*/
 	query := r.URL.Query()
 	// 头像默认尺寸，没有就取80，加快速度，因为cravatar默认就是80
 	s := query.Get("s")
