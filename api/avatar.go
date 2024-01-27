@@ -14,6 +14,7 @@ var allowedDomain string = os.Getenv("domain")
 func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 	// 加入防盗链，防止被盗刷
 	referer := r.Header.Get("Referer")
+	fmt.Println(referer)
 	// 判定是否为http或者https开头
 	if !strings.HasPrefix(referer, fmt.Sprint("http://", allowedDomain)) && !strings.HasPrefix(referer, fmt.Sprint("https://", allowedDomain)) {
 		http.Error(w, "403 Forbidden", http.StatusForbidden)
