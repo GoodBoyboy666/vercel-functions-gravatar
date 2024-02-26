@@ -27,7 +27,7 @@ func AvaterHandler(w http.ResponseWriter, r *http.Request) {
 
 	d := query.Get("d")
 	if d == "" {
-		d = "wavatar" // 卡通头像，我喜欢这个
+		d = "identicon"
 	}
 
 	gravatar := fmt.Sprintf("https://0.gravatar.com%s?s=%s&d=%s", r.URL.Path, s, d)
